@@ -1,0 +1,28 @@
+-- tbl_Categoria
+CREATE TABLE tbl_Categoria (
+    id_categoria INT PRIMARY KEY AUTO_INCREMENT, -- Identificador único de la categoría
+    nombre VARCHAR(100),
+
+);
+
+-- tbl_Producto
+CREATE TABLE tbl_Producto(
+    id_producto INTEGER PRIMARY KEY AUTO_INCREMENT, -- Identificador único de la plantilla
+    id_categoria INTEGER,
+    nombre VARCHAR(100),                        
+    talla DECIMAL(10, 2),                       
+    cantidad INT,                                
+    precio DECIMAL(10, 2)                       
+     FOREIGN KEY (id_categoria) REFERENCES tbl_Categoria( id_categoria)
+);
+
+-- tbl_Carrito
+CREATE TABLE tbl_Carrito (
+    id_carrito INT PRIMARY KEY AUTO_INCREMENT,   -- Identificador único del carrito
+    id_producto INT,                            
+    cantidad INT, 
+    precio_Total DECIMAL(10, 2)                               
+    FOREIGN KEY (id_producto) REFERENCES tbl_Producto(id_producto)
+);
+
+
