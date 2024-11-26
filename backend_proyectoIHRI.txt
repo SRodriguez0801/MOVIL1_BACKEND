@@ -12,9 +12,14 @@ CREATE TABLE tbl_Producto(
     nombre VARCHAR(100),                        
     talla DECIMAL(10, 2),                       
     cantidad INT,                                
-    precio DECIMAL(10, 2)                       
+    precio DECIMAL(10, 2),
+    imagen LONGBLOB,                   
      FOREIGN KEY (id_categoria) REFERENCES tbl_Categoria( id_categoria)
+     
 );
+
+INSERT INTO tbl_Producto (nombre, imagen) VALUES ('Producto 1', LOAD_FILE('/ruta/a/la/imagen.jpg'));
+
 
 -- tbl_Carrito
 CREATE TABLE tbl_Carrito (
