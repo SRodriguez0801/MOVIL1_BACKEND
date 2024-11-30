@@ -11,7 +11,7 @@ CREATE TABLE tbl_Producto(
     id_categoria INTEGER,
     nombre VARCHAR(100),                        
     talla DECIMAL(10, 2),                       
-    cantidad INT,                                
+    inventario INT,                                
     precio DECIMAL(10, 2),
     imagen LONGBLOB,                   
      FOREIGN KEY (id_categoria) REFERENCES tbl_Categoria( id_categoria)
@@ -25,9 +25,12 @@ INSERT INTO tbl_Producto (nombre, imagen) VALUES ('Producto 1', LOAD_FILE('/ruta
 CREATE TABLE tbl_Carrito (
     id_carrito INT PRIMARY KEY AUTO_INCREMENT,   -- Identificador único del carrito
     id_producto INT,                            
-    cantidad INT, 
+    cantidad INT,
+    precio_unitario INT, 
     precio_Total DECIMAL(10, 2)                               
     FOREIGN KEY (id_producto) REFERENCES tbl_Producto(id_producto)
 );
+
+
 
 
